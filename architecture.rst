@@ -58,5 +58,7 @@ Dimension tables are also referred to as *lookup tables* or *reference tables*. 
 
 To improve the performance of queries, database designers may choose to create *aggregate* or *summary tables* around the fact table, such as MONTHLY_PREMIUM. We have some of these in the Amerisure warehouse that I believe are used for the web reporting application. The summary tables are not something actuarial has ever bothered with.  
 
+Data is said to be stored in *normalized* tables in a transaction system when a minimal amount of data is replicated in each table and a data element needs to be updated in only one place. 
+
 
 
