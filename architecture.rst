@@ -1,12 +1,12 @@
 Business Intelligence Architecture
 ==================================
 
-This section presents the major technical components that make up an analytical architecture that I believe business users should have at least a high-level understanding of. 
+This section presents the major technical components that make up an analytical architecture that business users should have at least a high-level understanding of. 
 
 Operational and Source Systems
 -------------------------------
 
-Operational and source systems, aka transactional processing systems, are the starting point fo most quantitative data in a company. 
+Operational and source systems, also known as transactional processing systems, are the starting point for most quantitative data in a company. 
 Examples would include the policy system (APS, CLAS), the claims systems (ACE and Claim Center), billing system, and accounting or planning systems.  
 
 ETL: Extract, Transform, Load
@@ -20,8 +20,7 @@ Enterprise informantion management (EIM, I'm getting sick of acronyms already!) 
 
 Metadata
 ````````
-Metadata is data about the data.  If you didn't already know what metadata is, that definition probably didn't help. Maybe an analogy will.
-If the information contained in various books is the data, then the metadata would be the information about the books you would find on the card file or on Amazon: the date it was published, the number of pages, etc.  
+Metadata is data about the data.  If you didn't already know what metadata is, that definition probably wasn't very helpful. Think of the information contained in various books as the data. The metadata would be the information about the books you would find on the card file or on Amazon: the date it was published, the number of pages, etc.  
 
 Metadata may describe such things as
 
@@ -30,7 +29,7 @@ Metadata may describe such things as
 * From which source system an item originated
 * From which physical table and field in the source system was it extracted
 * Transformation rules and logic
-* How something was calculated--for example, *manual premium=(rate* X *payroll/100)*
+* How something was calculated--for example, *manual premium=(rate* X *payroll / 100)*
 * The definition, or more specifically, what the item means in a business context.
 
 Master Data Management
@@ -54,9 +53,9 @@ Within the data warehouse, data is physically stored in individual *tables* with
 Most data warehouses have two types of tables: (1) a *fact table* that contains keys into the dimension tables and numeric information to analyze, such as premium, paid losses, case reserves, billing amount, etc. and (2) *dimension tables* that allow analysis of measures from different perspectives, such as policy, agency, claim, claimant.   
 Frequently, we will refer to the fact tables as the transaction tables. They aren't transaction tables in the typical data warehousing sense, but the rows of the fact tables tend to correspond to individual transactions.
 
-Dimension tables are also referred to as *lookup tables* or *reference tables*. Typically, lookup tables are used for the smaller dimension tables. So the claim dimension would be less likely to be called a lookup, but the state dimension (which has simple things like the state abbreviation or core state indicator) would often be referred to as the state lookup.
+Dimension tables are also referred to as *lookup tables* or *reference tables*. Typically, lookup tables are used to refer to for the smaller dimension tables. So the claim dimension would be less likely to be called a lookup, but the state dimension (which has simple things like the state abbreviation or core state indicator) would often be referred to as the state lookup.
 
-To improve the performance of queries, database designers may choose to create *aggregate* or *summary tables* around the fact table, such as MONTHLY_PREMIUM. We have some of these in the Amerisure warehouse that I believe are used for the web reporting application. The summary tables are not something actuarial has ever bothered with.  
+To improve the performance of queries, database designers may choose to create *aggregate* or *summary tables* around the fact table, such as MONTHLY_PREMIUM. We have some of these in the Amerisure warehouse that are used for the web reporting application. In general, the summary tables are not something actuarial has ever bothered to use.  
 
 Data is said to be stored in *normalized* tables in a transaction system when a minimal amount of data is replicated in each table and a data element needs to be updated in only one place. 
 
